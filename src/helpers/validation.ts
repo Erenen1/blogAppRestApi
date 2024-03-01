@@ -39,5 +39,3 @@ export const validateComment = (values: Record<string, any>) => commentSchema.va
 
 const categorySchema = Joi.object({ name: Joi.string().required().regex(new RegExp("^[a-zA-Z0-9 ]{1,30}$")) })
 export const validateCategory = (values: Record<string, any>) => categorySchema.validate(values);
-
-

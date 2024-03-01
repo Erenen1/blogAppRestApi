@@ -66,10 +66,6 @@ export const deleteUser = async (req: express.Request, res: express.Response) =>
         if (!user) {
             return res.status(404).json({ success: false, message: "Böyle bir kullanıcı bulunamadı." })
         }
-        const tokenUserId = (req as any).jwtToken.userId;
-        if (user._id.toString() !== tokenUserId) {
-            return res.status(401).json({ success: false, message: "Yetkisiz erişim." })
-        }
         const deletedUser = await deleteUserById(userId);
         return res.status(200).json({ success: true, message: "Kullanıcı başarıyla silindi.", deletedUser: deletedUser })
     } catch (error) {
