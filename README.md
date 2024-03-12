@@ -30,7 +30,7 @@ Projeyi çalıştırmak için aşağıdaki yazılımların kurulu olması gerekm
 
 ```npm run start```
 
-```http://localhost:3000```
+Sunucu ```http://localhost:3000``` üzerinden çalışıyor.
 ***************************
 
 Docker ile çalıştırmak için:
