@@ -18,12 +18,17 @@ Projeyi çalıştırmak için aşağıdaki yazılımların kurulu olması gerekm
 ### Kurulum
 
 1. Projeyi klonlayın:
+   
 ```git clone https://github.com/Erenen1/blogAppRestApi.git```
+
 2.Bağımlılıkları yükleyin:
+
 ```npm install```
 
 3.Projeyi çalıştırın:
-```npm run start```
 
+```npm run start```
+***************************
 Docker ile çalıştırmak için:
+
 ```docker-compose up -d```
