@@ -18,7 +18,7 @@ Projeyi çalıştırmak için aşağıdaki yazılımların kurulu olması gerekm
 ### Kurulum
 
 
-1. Projeyi klonlayın:
+1.Projeyi klonlayın:
    
 ```git clone https://github.com/Erenen1/blogAppRestApi.git```
 
