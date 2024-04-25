@@ -1,12 +1,32 @@
 version: "3"
+
 services:
-  node-server:
-    container_name: node-app
-    build: .
+  node_server:
+    container_name: node_app
+    build:
+      context: .
+      dockerfile: ./Dockerfile
     ports: 
-      - "3001:3000"
+      - "8080:3000"
+    networks:
+      - bridge_network
+    environment:
+      - DATABASE_URL=mongodb://mongo_database/blogapp
+    
   mongodb:
     container_name: mongo_database
     image: mongo
     ports:
-      - "27017:27017"
+      - "60600:27017"
+    networks:
+      - bridge_network
+    volumes:
+      - blogAppDatabase:/data/db
+
+networks:
+  bridge_network:
+    driver: bridge
+
+volumes:
+  blogAppDatabase:
+    driver: local
