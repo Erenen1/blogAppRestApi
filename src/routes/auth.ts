@@ -6,5 +6,4 @@ const router = express.Router();
 router.post("/login", authRateLimiter, login)
 router.post("/register", authRateLimiter, register)
 
-
 export default router;

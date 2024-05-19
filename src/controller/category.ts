@@ -62,6 +62,7 @@ export const deleteCategory = async (req: express.Request, res: express.Response
         return res.status(400).json({ success: false, message: "Kategori silinemedi." })
     }
 }
+
 export const createCategory = async (req: express.Request, res: express.Response) => {
     const { name } = req.body;
     const { error } = validateCategory(req.body);

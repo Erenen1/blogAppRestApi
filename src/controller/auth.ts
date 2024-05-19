@@ -2,6 +2,7 @@ import { createUser, getUserByEmail } from "../db/models/user";
 import express from "express";
 import { authentication, createJwtToken, hashPassword } from "../helpers/authentication";
 import { validateLogin, validateRegister } from "../helpers/validation"
+import { config } from "../config"
 
 export const login = async (req: express.Request, res: express.Response) => {
     const { email, password } = req.body
@@ -19,13 +20,12 @@ export const login = async (req: express.Request, res: express.Response) => {
             return res.sendStatus(403)
         }
         let isAdmin: boolean = false;
-        if (user.email === "burak@gmail.com" || user.email === "eren@gmail.com") {
+        if (user.email === config.ADMIN_ACCOUNT) {
             isAdmin = true;
         }
         const jwtToken = createJwtToken(user._id.toString(), user.username, isAdmin);
 
-        //jwt tokenı yollama işini sor burağa
-        return res.status(302).setHeader("auhtorization", jwtToken).json({ success: true, message: "Hesaba başarıyla giriş yapıldı.", jwtToken: jwtToken })
+        return res.status(302).setHeader("auhtorization", jwtToken).json({ success: true, message: "Hesaba başariyla giriş yapildi.", jwtToken: jwtToken })
     } catch (error) {
         console.log(error)
         return res.sendStatus(400)

@@ -7,11 +7,13 @@ services:
       context: .
       dockerfile: ./Dockerfile
     ports: 
-      - "8080:3000"
+      - "3000:3000"
     networks:
       - bridge_network
     environment:
-      - DATABASE_URL=mongodb://mongo_database/blogapp
+      - DB_HOST=mongodb://mongo_database/Blogapp
+      - ADMIN_ACCOUNT=deneme@gmail.com
+      - JWT_SECRET=secret_key
     
   mongodb:
     container_name: mongo_database

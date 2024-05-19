@@ -1,7 +1,6 @@
 import mongoose from "mongoose";
 import { Schema } from "mongoose";
 
-
 const postSchema = new Schema({
     title: { type: String, required: true },
     content: { type: String, required: true },
@@ -19,3 +18,5 @@ export const updatePostById = (postId: string, values: Record<string, any>) => P
 export const createPost = (values: Record<string, any>) => new Post(values).save().then((post) => post.toObject());
 export const getPostsByUserId = (userId: string) => Post.find({ userId: userId })
 export const getPostsByIdWithComments = (postId: string) => Post.findOne({ _id: postId }).populate("comments")
+
+

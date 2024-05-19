@@ -1,10 +1,11 @@
 import mongoose from "mongoose";
+import { config } from "../config"
 
-export async function connectDb (){
+export async function connectDb() {
     try {
-        await mongoose.connect('mongodb://mongodb:27017/blogapp');
-        console.log("baglanti basarili")
+        await mongoose.connect(config.DB_HOST!);
+        console.log("baglanti basarili");
     } catch (error) {
         console.log(error);
     }
-} 
+}

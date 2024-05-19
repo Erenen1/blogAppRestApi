@@ -9,5 +9,4 @@ router.put("/:userId", authentication, userAuthorization, updateUser)
 router.delete("/:userId", authentication, userAuthorization, deleteUser)
 router.get("/", isAdmin, getAllUsers);
 
-
 export default router;

@@ -1,7 +1,7 @@
 import express from "express";
 import { getAllComments, getCommentById, deleteCommentById, updateCommentById, createComment } from "../db/models/comments"
 import { validateComment, validateId } from "../helpers/validation"
-import { getPostById } from "../db/models/post";
+import { getPostById,Post } from "../db/models/post";
 
 export const getComments = async (req: express.Request, res: express.Response) => {
     try {
@@ -67,6 +67,7 @@ export const deleteComment = async (req: express.Request, res: express.Response)
         return res.status(400).json({ success: false, message: "Comment silinemedi." })
     }
 }
+
 export const createComments = async (req: express.Request, res: express.Response) => {
     const postId = req.params.postId;
     const { title, content, image } = req.body;
@@ -80,8 +81,12 @@ export const createComments = async (req: express.Request, res: express.Response
         const comment = await createComment(values);
 
         const post = await getPostById(postId)
+        if(!post){
+            return res.status(400).json({success:false,message:"Bu id'ye sahip bir post yok"});
+        }
+
         post.comments.push(comment._id);
-        await post.save()
+        await post.save();
 
         return res.status(201).json({ success: true, message: "Comment başarıyla oluşturuldu.", comment: comment })
 

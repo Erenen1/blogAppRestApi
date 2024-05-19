@@ -1,5 +1,5 @@
 import express from "express";
-import { getAllPosts, getPostById, deletePostById, updatePostById, createPost,getPostsByIdWithComments } from "../db/models/post"
+import { getAllPosts, deletePostById, updatePostById, createPost,getPostsByIdWithComments } from "../db/models/post"
 import { validatePostsInputs, validateId } from "../helpers/validation"
 
 export const getPosts = async (req: express.Request, res: express.Response) => {
@@ -67,6 +67,7 @@ export const deletePost = async (req: express.Request, res: express.Response) =>
         return res.status(400).json({ success: false, message: "Post silinemedi." })
     }
 }
+
 export const createPosts = async (req: express.Request, res: express.Response) => {
     const { title, content, image } = req.body;
     try {

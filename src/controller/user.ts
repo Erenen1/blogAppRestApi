@@ -1,7 +1,7 @@
 import express from "express";
-import { getUserByEmail, getUserById, getUsers, updateUserById, deleteUserById } from "../db/models/user"
+import {  getUserById, getUsers, updateUserById, deleteUserById } from "../db/models/user"
 import { hashPassword } from "../helpers/authentication";
-import { validateId, validateRegister, validateUserUpdate } from "../helpers/validation"
+import { validateId, validateUserUpdate } from "../helpers/validation"
 
 export const getAllUsers = async (req: express.Request, res: express.Response) => {
     try {

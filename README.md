@@ -28,7 +28,7 @@ Projeyi çalıştırmak için aşağıdaki yazılımların kurulu olması gerekm
 
 3.Projeyi çalıştırın:
 
-```npm run start```
+```npm run start:dev```
 
 Sunucu ```http://localhost:3000``` üzerinden çalışıyor.
 ***************************
